@@ -1,0 +1,69 @@
+<div>
+  <form (keyup)="getGithubUser()" #userForm="ngForm">
+    <div class="form-group">
+        <input type="text" placeholder="Search User" [(ngModel)]="userName" name="userName">
+    </div>
+</form>
+
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <h3 class="panel-title" >{{ portrait.login}}</h3>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-3 col-lg-3 " > <img alt="User Pic" src="{{ portrait.avatar_url }}" class="img"> </div>
+
+        <div class=" col-md-9 col-lg-9 ">
+          <table class="table table-user-information">
+            <tbody>
+              <tr>
+                <td>Full Name: </td>
+                <td>{{ portrait.name}}</td>
+              </tr>
+              <tr>
+                <td>Repositories:</td>
+                <td>
+                  <tr>
+                    <td>
+                      {{portrait.repos_url}}
+                    </td>
+                    <td>
+                        <a href="{{portrait.repo_url}}" routerLink="user/repositories?" class="btn btn-info">View more</a>
+                    </td>
+                  </tr>
+
+                </td>
+
+              </tr>
+              <tr>
+                <td>Followers</td>
+                <td>{{ portrait.followers_url }}</td>
+              </tr>
+
+                 <tr>
+                     <tr>
+                <td>Following</td>
+                <td>{{ portrait.following_url}}</td>
+              </tr>
+                <tr>
+                <td>Created</td>
+                <td>{{portrait.createdAt | dateCount}}</td>
+              </tr>
+              <tr>
+                <td>Email</td>
+                <td appUser="">{{ portrait.email }}</td>
+              </tr>
+
+            </tbody>
+          </table>
+
+          <a href="{{portrait.repo_url}}" class="btn btn-primary">View User on Github</a>
+        </div>
+      </div><br>
+    </div>
+         <div class="panel-footer">
+           <p style="font-size: 12px;" >copyright@2019 Ali Kheir</p>
+            </div>
+
+  </div>
+</div>
